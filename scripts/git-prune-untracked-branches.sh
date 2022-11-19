@@ -2,7 +2,9 @@
 
 git fetch -p --quiet
 
-branchesToPrune=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}')
+branchesWithGoneRemote=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}')
+branchesWithNoRemote=$(git branch --format "%(refname:short) %(upstream)" | awk '{if (!$2) print $1;}')
+branchesToPrune=$((echo $branchesWithGoneRemote; echo $branchesWithNoRemote) | tr " " "\n" | sort)
 
 branchCount=0
 branchStr="Prune below branches which have no remote?"

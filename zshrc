@@ -93,6 +93,7 @@ export VISUAL='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gprub="~/dotfiles/scripts/git-prune-untracked-branches.sh"
+alias gcpf="~/dotfiles/scripts/git-cherry-pick-flow.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
