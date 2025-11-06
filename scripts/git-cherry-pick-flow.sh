@@ -8,7 +8,7 @@ if [ "$1" = '-h' -o $# -lt 2 ]; then
 fi
 
 randomStr=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
-cherryBranch="justin/cherry-$1_$randomStr"
+cherryBranch="user/justinni/cherry-$1_$randomStr"
 
 echo "Okay to reset --hard? $1 --> origin/$1"
 read -p "[Y/N]? " yn
